@@ -14,6 +14,11 @@ var cucumber = function(options) {
         files = files.concat(glob([].concat(options.steps)));
     }
 
+    if (options.tags) {
+        runOptions.push('--tags');
+        runOptions.push(options.tags);
+    }
+
     files.forEach(function(file) {
         runOptions.push('-r');
         runOptions.push(file);
